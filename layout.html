@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<head>
+	<title> Vasa Webpage Deluxe </title>
+	
+	<!-- CSS -->
+	<link rel='stylesheet' href='css/main.css'/>
+	
+	<!-- JS -->
+	<script src='./js/jquery-3.3.1.min.js'></script>
+	<script src='./js/jquery.color-2.1.2.min.js'></script>
+</head>
+<body>
+	<div id='main'>
+		<div id='header'>
+			<div id='headerTitle'><a id="headerTitleLink" href='index.html'>Vasa's Dank Hub</a></div>
+			<!-- 
+			--><a class='headerButton' href='scroll-page.html'>Scroll Page</a><!--
+			--><a class='headerButton' href=''>Button</a><!--
+			--><a class='headerButton' href=''>Button</a><!--
+			--><a class='headerButton' href=''>Button</a><!--
+			--><a class='headerButton headerButtonRight' href='layout.html'>Layout Page</a><!--
+			--><div id='headerButtonFiller'> &nbsp; </div>
+		</div>
+
+		<div id='sidebarColumn' class='column'>
+			<div class='heading'>
+				Sidebar Column
+			</div>
+			<div class='content'>
+				<p>
+					The bucket mangles the obliging syndrome beside the fortune. Why does the reject keep a circuitry? Each hairy event couples the chance. Will the smile commission a potential tag? The composer sickens underneath a broadcast youth.
+				</p>
+			</div>
+		</div> 
+		<div id='mainColumn' class='column'>
+			<div class='heading'>
+				Main Column
+			</div>
+			<div class='content'>
+				How can the needle punt on top of a reverse verb? Next to a horizontal bankrupt expires a half girlfriend. The disconnected whole utters the asset. The young fusses his carrier underneath a conceivable developer. When can the tour walk? How does the photograph exercise?
+			</div>
+		</div>
+		<div id='mainColumn' class='column'>
+			<div class='heading'>
+				Main Column
+			</div>
+			<div class='content'>
+				How can the needle punt on top of a reverse verb? Next to a horizontal bankrupt expires a half girlfriend. The disconnected whole utters the asset. The young fusses his carrier underneath a conceivable developer. When can the tour walk? How does the photograph exercise?
+			</div>
+		</div>
+		<div id='sidebarColumn' class='column'>
+			<div class='heading'>
+				Sidebar Column
+			</div>
+			<div class='content'>
+				<p>
+					The bucket mangles the obliging syndrome beside the fortune. Why does the reject keep a circuitry? Each hairy event couples the chance. Will the smile commission a potential tag? The composer sickens underneath a broadcast youth.
+				</p>
+			</div>
+		</div> 
+		<div id='sidebarColumn' class='column'>
+			<div class='heading'>
+				Sidebar Column
+			</div>
+			<div class='content'>
+				<p>
+					The bucket mangles the obliging syndrome beside the fortune. Why does the reject keep a circuitry? Each hairy event couples the chance. Will the smile commission a potential tag? The composer sickens underneath a broadcast youth.
+				</p>
+			</div>
+		</div> 
+		<div id='sidebarColumn' class='column'>
+			<div class='heading'>
+				Sidebar Column
+			</div>
+			<div class='content'>
+				<p>
+					The bucket mangles the obliging syndrome beside the fortune. Why does the reject keep a circuitry? Each hairy event couples the chance. Will the smile commission a potential tag? The composer sickens underneath a broadcast youth.
+				</p>
+			</div>
+		</div> 
+		<div id='fullColumn' class='column'>
+			<div class='heading'>
+				Full Column
+			</div>
+			<div class='content'>
+				<p>
+					The saddening slash drives the nostalgia against a dried army. Why won't the deaf originate? A pressure thinks on top of a bogus mouse. The aligning vicar cries over the solid <mixture class=""></mixture>
+				</p>
+			</div>
+		</div> 
+
+<div id='footer'></div>
+	</div>
+</body>
+
+<script>
+	
+// Main colors
+var headerColor;
+var headingColor;
+var mainColor;
+var footerColor;
+var footerBottomColor;
+
+var thresholdHeader;
+var thresholdHeading;
+var thresholdMain;
+var thresholdFooter;
+var thresholdFooterBottom;
+
+// Run only once, when page is loaded
+$(document).ready(function(){
+	
+	headerColor = $('#header').css('backgroundColor');
+	headingColor = $('.heading').css('backgroundColor');
+	mainColor = $('#main').css('backgroundColor');
+	footerColor = $('#footer').css('backgroundColor');
+	footerBottomColor = '#83AE9B'; // Hardcoded because on the page it is only rendered through a gradient
+	// console.log( 'headerColor: ' + headerColor + '\nheadingColor: ' + headingColor + '\nmainColor: ' + mainColor + '\nfooterColor: ' + footerColor + '\nfooterBottomColor: ' + footerBottomColor);
+	
+	// Pixel distance from top of page to the beginning of the element
+	thresholdHeading = $('.heading').offset().top;
+	thresholdMain = $('.content').offset().top;
+	thresholdFooter = 50;
+	thresholdFooterBottom = 50;
+});
+
+// Run every time page is scrolled
+$(window).scroll(function() {
+	
+	// Finds distance to top of page
+	var scrollTop = $(window).scrollTop();
+	var scrollBottom = $(document).height() - $(window).height() - scrollTop;
+	var targetColor;
+	
+	// Check distance from top to determine background color
+	/* Functionality to turn page yellow; temporarily removed
+	if(scrollTop >= thresholdMain) {
+		targetColor = mainColor;
+	}
+	*/
+	if(scrollTop >= thresholdHeading) {
+		targetColor = headingColor;
+	}
+	else {
+		targetColor = headerColor;
+	}
+	
+	// Check for footer distance by calculating distance from bottom
+	/* Functionality to turn page green/lime; temporarily removed
+	if(scrollBottom <= thresholdFooterBottom) {
+		targetColor = footerBottomColor;
+	}
+	*/
+	if(scrollBottom <= thresholdFooter) {
+		targetColor = footerColor;
+	}
+	
+	changeBackgroundColor(targetColor);
+});
+
+// Changes background color only if:
+//		- The background is not currently changing
+//		- The color we wish to switch to is not already the background color
+function changeBackgroundColor(targetColor) {
+	var currentColor = $('body').css('backgroundColor');
+	var animating = $('body').is(':animated');
+	
+	if(animating || currentColor == targetColor)
+		return;
+	$('body').animate({backgroundColor: targetColor});
+}
+	
+</script>

@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee|Nunito|Pacifico|Quicksand|Rubik|VT323|Cutive+Mono');
+
+:root {
+	--simpleRed       : #EF4566;
+	--simpleOrange    : #F69A9A;
+	--simpleYellow    : #F9CDAE;
+	--simpleLime      : #C8C8A9;
+	--simpleGreen     : #83AE9B;
+	
+	--backgroundColor : #EF4566;
+	--divColor        : var(--simpleOrange);
+	
+	--standardPadding : 30px;
+	--standardBRadius : 0px;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: Quicksand, Nunito, Arial;
+}
+
+body {
+	background-color : var(--backgroundColor);
+	margin           : 50px;
+	overflow-y       : scroll; /* Scroll bar becomes always visible, so page width isn't changed */
+}
+
+#main {
+	background-color : var(--simpleYellow);
+	margin           : auto;
+	width            : 75%;
+	border-radius    : var(--standardBRadius)
+}
+
+#main::after {
+	content : "";
+	clear   : both;
+	display : table;
+}
+
+/* Header */
+	#header {
+		background-color : var(--simpleRed);
+		border-radius    : var(--standardBRadius) var(--standardBRadius) 0px 0px;
+		padding          : 0 0 var(--standardPadding) 0 ;
+	}
+
+	#headerTitle {
+		text-align: center;
+	}
+
+	#headerTitleLink {
+		font-family     : 'Bungee';
+		font-size       : 50px;
+		color           : black;
+		text-decoration : none;
+	}
+	
+	#headerButtonFiller, .headerButton {
+		background-color : var(--simpleOrange);
+		padding          : 5px;
+		border-radius    : 2px;
+		overflow         : hidden;
+		height           : 32px;
+	}
+
+	.headerButton {
+		margin-right: 10px;
+		float: left;
+		color: black;
+		text-decoration: none;
+	}
+	
+	.headerButtonRight {
+		margin-left: 10px;
+		margin-right: 0px;
+		float: right;
+	}
+
+	.headerButton:hover {
+		background-color: var(--simpleYellow);
+	}
+	
+	.headerButton:active {
+		background-color: var(--simpleOrange);
+	}
+
+/* Content Areas */
+	.column {
+		background-color: var(--simpleYellow);
+		float   : left;
+	}
+	
+	#fullColumn {
+		width            : 100%;
+	}
+
+	#mainColumn {
+		width            : 75%;
+	}
+
+	#sidebarColumn {
+		width            : 25%;
+	}
+
+	.heading {
+		background-color : var(--simpleOrange);
+		padding          : calc(var(--standardPadding)/3*2);	
+		font-family      : 'Bungee';
+	}
+
+	.content {
+		padding          : var(--standardPadding);
+	}
+
+/* Footer Areas */
+	#footer {
+		background       : linear-gradient(0, var(--simpleGreen) 50%, var(--simpleLime) 50%);
+		background-color : var(--simpleLime);
+		
+		float            : left;
+		width            : 100%;
+		height           : 150px;
+		
+		text-align       : center;
+		
+		border-radius    : 0px 0px var(--standardBRadius) var(--standardBRadius);
+	}
+
+
+
